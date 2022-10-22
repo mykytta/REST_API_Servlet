@@ -13,17 +13,18 @@ public class Event {
     @OneToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     @JoinColumn(name = "file_id", referencedColumnName = "id")
     private File file;
-    @Column(name = "user_id", table = "events")
-    private Integer userId;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 
     public Event() {
     }
 
-    public Event(Integer id, String eventName, File file, Integer userId) {
+    public Event(Integer id, String eventName, File file, User user) {
         this.id = id;
         this.eventName = eventName;
         this.file = file;
-        this.userId = userId;
+        this.user = user;
     }
 
     public Integer getId() {

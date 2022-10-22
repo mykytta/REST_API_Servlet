@@ -1,7 +1,5 @@
 package com.mykyta.restapi.model;
 
-import com.google.gson.annotations.Expose;
-import com.google.gson.annotations.SerializedName;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -14,8 +12,7 @@ public class User {
     private Integer id;
     @Column(name = "user_name")
     private String name;
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
-    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "user", cascade = CascadeType.MERGE)
     private List<Event> events;
 
     public User(){

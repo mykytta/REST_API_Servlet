@@ -7,46 +7,34 @@
 
   <servlet>
     <servlet-name>FileController</servlet-name>
-    <servlet-class>com.mykyta.restapi.controller.FileController</servlet-class>
+    <servlet-class>com.mykyta.restapi.rest.FileRestControllerV1</servlet-class>
   </servlet>
 
   <servlet>
     <servlet-name>UserController</servlet-name>
-    <servlet-class>com.mykyta.restapi.controller.UserController</servlet-class>
+    <servlet-class>com.mykyta.restapi.rest.UserRestControllerV1</servlet-class>
   </servlet>
 
   <servlet>
     <servlet-name>EventController</servlet-name>
-    <servlet-class>com.mykyta.restapi.controller.EventController</servlet-class>
+    <servlet-class>com.mykyta.restapi.rest.EventRestControllerV1</servlet-class>
   </servlet>
 
-  <servlet-mapping>
-    <servlet-name>FileController</servlet-name>
-    <url-pattern>/files</url-pattern>
-  </servlet-mapping>
 
   <servlet-mapping>
     <servlet-name>FileController</servlet-name>
-    <url-pattern>/files/*</url-pattern>
+    <url-pattern>/api/v1/files/*</url-pattern>
   </servlet-mapping>
 
   <servlet-mapping>
     <servlet-name>UserController</servlet-name>
-    <url-pattern>/users</url-pattern>
+    <url-pattern>/api/v1/users/*</url-pattern>
   </servlet-mapping>
 
-  <servlet-mapping>
-    <servlet-name>UserController</servlet-name>
-    <url-pattern>/users/*</url-pattern>
-  </servlet-mapping>
 
   <servlet-mapping>
     <servlet-name>EventController</servlet-name>
-    <url-pattern>/events</url-pattern>
+    <url-pattern>/api/v1/events/*</url-pattern>
   </servlet-mapping>
 
-  <servlet-mapping>
-    <servlet-name>EventController</servlet-name>
-    <url-pattern>/events/*</url-pattern>
-  </servlet-mapping>
 </web-app>

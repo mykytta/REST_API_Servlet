@@ -25,8 +25,8 @@ public class EventServiceTest extends TestCase {
     }
 
     public void testGetAllEvents() {
-        List<Event> events = Arrays.asList(new Event(1, "Smth", new File(1, "Document", "/main"), 1),
-                new Event(1, "AddingUserInfo", new File(2, "UserInfo", "/bin"), 2));
+        List<Event> events = Arrays.asList(new Event(1, "Smth", new File(1, "Document", "/main"), null),
+                new Event(1, "AddingUserInfo", new File(2, "UserInfo", "/bin"), null));
 
         given(eventRepository.getAll()).willReturn(events);
         List<Event> testResult = eventService.getAllEvents();
@@ -36,7 +36,7 @@ public class EventServiceTest extends TestCase {
     }
 
     public void testGetEventById() {
-        given(eventRepository.getById(1)).willReturn(new Event(1, "Smth", new File(1, "Document", "/main"), 1));
+        given(eventRepository.getById(1)).willReturn(new Event(1, "Smth", new File(1, "Document", "/main"), null));
         Event testEvent = eventService.getEventById(1);
         assertNotNull(testEvent);
         assertEquals(eventRepository.getById(1), testEvent);
@@ -44,7 +44,7 @@ public class EventServiceTest extends TestCase {
     }
 
     public void testCreateEvent() {
-        Event expected = new Event(1, "Smth", new File(1, "Document", "/main"), 1);
+        Event expected = new Event(1, "Smth", new File(1, "Document", "/main"), null);
         given(eventRepository.create(expected)).willReturn(expected);
         Event actual = eventService.createEvent(expected);
 
@@ -53,7 +53,7 @@ public class EventServiceTest extends TestCase {
     }
 
     public void testUpdateEvent() {
-        Event withoutChangesExpected = new Event(1, "Smth", new File(1, "Document", "/main"), 1);
+        Event withoutChangesExpected = new Event(1, "Smth", new File(1, "Document", "/main"), null);
         given(eventRepository.getById(1)).willReturn(withoutChangesExpected);
         given(eventRepository.update(withoutChangesExpected)).willReturn(withoutChangesExpected);
         Event withoutChangesActual = eventService.getEventById(1);
